@@ -2,9 +2,12 @@ import Banner from "@/components/Banner";
 import Creations from "@/components/Creations";
 import Services from "@/components/Services";
 import WhyUs from "@/components/WhyUs";
+import Navbar from "@/components/Navbar";
 export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center">
+      {" "}
+      <Navbar />
       <Banner />
       <Creations />
       <WhyUs />

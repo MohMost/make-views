@@ -14,9 +14,12 @@ function WhyUs() {
   }
 
   return (
-    <section className="w-full flex flex-col justify-center items-center gap-4 ">
+    <section
+      id="whyus"
+      className="w-full flex flex-col justify-center items-center py-4 gap-4"
+    >
       <VideoBackground videoUrl={validationResult.data.videoUrl}>
-        <div className="flex flex-col justify-center items-center gap-1 py-4">
+        <div>
           <h2 className="text-xl text-center uppercase font-bold ">
             pourquoi nous choisir ?
           </h2>

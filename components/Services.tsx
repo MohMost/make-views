@@ -3,6 +3,7 @@ import { client } from "@/sanity/lib/client";
 import React, { useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { EmblaOptionsType } from "embla-carousel";
+import { BackgroundGradient } from "./ui/background-gradiant";
 
 interface Service {
   title: string;
@@ -45,11 +46,18 @@ const EmblaCarousel: React.FC = () => {
   }, []);
 
   return (
-    <section className="w-full flex flex-col justify-center items-center gap-4">
-      <h2 className="text-xl text-center uppercase font-bold">
-        {serviceList[0]?.h2Title || "Nos Services"}
-      </h2>
-
+    <section
+      id="services"
+      className="w-full flex flex-col justify-center items-center gap-4"
+    >
+      <BackgroundGradient>
+        <div>
+          <h2 className="text-xl text-center uppercase font-bold">
+            {serviceList[0]?.h2Title || "Nos Services"}
+          </h2>
+          <div className="h-[2px] w-full bg-primary"></div>
+        </div>
+      </BackgroundGradient>
       <div className="embla overflow-hidden w-full">
         <div className="embla__viewport" ref={emblaRef}>
           <div className="embla__container ">

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,42 +13,38 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-[#0F0F0F]/70 justify-between absolute w-full z-20 backdrop-filter backdrop-blur-md  text-gray-800">
+    <nav className="bg-[#0F0F0F]/70 justify-between  w-full h-fit  backdrop-filter backdrop-blur-md  text-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0">
-              <img
+              <Image
+                width={32}
+                height={32}
                 className="h-8 w-auto"
-                src="/placeholder.svg?height=32&width=32"
+                src="/logo.svg"
                 alt="Logo"
               />
             </Link>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4 text-white">
                 <Link
-                  href="/"
+                  href="#creations"
                   className=" hover:bg-gray-200 px-3 py-2 rounded-md text-sm font-medium"
                 >
-                  Home
+                  Nos créations
                 </Link>
                 <Link
-                  href="/about"
+                  href="#whyus"
                   className=" hover:bg-gray-200 px-3 py-2 rounded-md text-sm font-medium"
                 >
-                  About
+                  Pourquoi nous choisir
                 </Link>
                 <Link
-                  href="/services"
+                  href="#services"
                   className=" hover:bg-gray-200 px-3 py-2 rounded-md text-sm font-medium"
                 >
-                  Services
-                </Link>
-                <Link
-                  href="/contact"
-                  className=" hover:bg-gray-200 px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Contact
+                  Nos Services
                 </Link>
               </div>
             </div>
@@ -65,6 +62,19 @@ export default function Navbar() {
               )}
             </button>
           </div>
+          {/* Contact Modal 
+          <ContactModal>
+            <div>
+              <Image
+                className="h-6 w-6"
+                src="/Email.svg"
+                alt="Logo"
+                width={32}
+                height={32}
+              />
+            </div>
+          </ContactModal>
+         */}
         </div>
       </div>
 
