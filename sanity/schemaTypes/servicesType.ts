@@ -12,6 +12,14 @@ export const servicesType = defineType({
       type: "string",
     }),
     defineField({
+      name: "icon",
+      title: "Icon",
+      type: "image", // You can also use a custom SVG input type if you have a plugin
+      options: {
+        hotspot: true,
+      },
+    }),
+    defineField({
       name: "servicesList",
       title: "Services",
       type: "array",
@@ -28,6 +36,14 @@ export const servicesType = defineType({
               name: "description",
               title: "Description du service",
               type: "text", // Allows for longer text
+            }),
+            defineField({
+              name: "icon",
+              title: "Icon",
+              type: "image", // You can also use a custom SVG input type if you have a plugin
+              options: {
+                hotspot: true,
+              },
             }),
           ],
         },

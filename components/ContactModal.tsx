@@ -76,7 +76,7 @@ export function ContactModal({ children }: PropsWithChildren) {
   return (
     <Modal>
       <ModalTrigger>{children}</ModalTrigger>
-      <ModalBody className=" z-[100]">
+      <ModalBody className=" z-50">
         <ModalContent>
           <div className="flex flex-wrap md:px-10 items-start justify-start ">
             <Form {...form}>

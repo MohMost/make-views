@@ -6,6 +6,7 @@ import SocialMedia from "./ui/social-media";
 import { BackgroundGradient } from "./ui/background-gradiant";
 import VideoBackground from "./VideoBackground";
 import { videoSchema } from "@/schemas/videoSchema";
+import { ContactModal } from "./ContactModal";
 
 function Footer() {
   const videoUrl =
@@ -24,14 +25,18 @@ function Footer() {
       <VideoBackground videoUrl={validationResult.data.videoUrl}>
         <div className="flex justify-center items-center flex-col gap-10 py-10  ">
           <div className="h-[2px] w-1/2 bg-primary"></div>
-          <BackgroundGradient>
-            <Button>travallons-ensemble</Button>
-          </BackgroundGradient>
-          <div className="flex gap-2">
-            <Image src="/Email.svg" alt="email" width={24} height={24} />
-            <Link href="/mentions-legales">makeviews.contact@gmail.com</Link>
+          <div className="flex flex-col md:flex-row-reverse gap-4 justify-center md:justify-between md:gap-10  items-center">
+            <BackgroundGradient>
+              <ContactModal>
+                <Button>travallons-ensemble</Button>
+              </ContactModal>
+            </BackgroundGradient>
+            <div className="flex gap-2">
+              <Image src="/Email.svg" alt="email" width={24} height={24} />
+              <Link href="/mentions-legales">makeviews.contact@gmail.com</Link>
+            </div>
+            <SocialMedia />
           </div>
-          <SocialMedia />
         </div>
       </VideoBackground>
     </footer>

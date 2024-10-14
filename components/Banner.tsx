@@ -25,20 +25,22 @@ function Banner() {
         <div className="flex flex-col justify-center items-center gap-4 z-10">
           {" "}
           <SocialMedia />
-          <div>
-            <h2 className="flex flex-col text-3xl text-center uppercase font-bold ">
-              <span className="text-primary text-lg font-normal">
+          <div className="">
+            <h2 className="flex  flex-col text-3xl  text-center uppercase font-bold ">
+              <span className="text-primary  mb-2 text-lg md:text-3xl xl:text-4xl font-normal">
                 MAKE VIEWS
               </span>
-              <span className="text-xl ">Donnons vie à vos idées</span>
+              <span className="text-xl md:text-4xl xl:text-5xl">
+                Donnons vie à vos idées
+              </span>
             </h2>
-            <h1 className=" text-3xl text-center uppercase font-bold">
+            <h1 className=" text-3xl md:text-5xl xl:text-6xl text-center uppercase font-bold">
               votre <span className="text-primary">vision</span> notre{" "}
               <span className="text-primary">création</span>
             </h1>
           </div>
         </div>
-        <div className="flex flex-col justify-center items-center gap-4 mt-4">
+        <div className="flex flex-col md:flex-row justify-center items-center gap-4 mt-4">
           <BackgroundGradient>
             <ContactModal>
               <Button className="w-48 z-10">Travallons-ensemble</Button>

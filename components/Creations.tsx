@@ -15,11 +15,11 @@ function Creations() {
   return (
     <section
       id="creations"
-      className="flex flex-col items-center w-full rounded-[7px] border border-[#5B4B31] bg-gradient-to-b from-[#1D1D1D] via-[#505050] to-blue-[#1D1D1D] max-w-[90%]"
+      className="flex flex-col items-center w-full rounded-[7px] border border-[#5B4B31] bg-gradient-to-b from-[#1D1D1D] via-[#505050] to-blue-[#1D1D1D] max-w-[90%] md:max-w-[70%] mx-auto md:p-4 md:mb-10"
     >
       <div className="flex flex-col justify-center items-center gap-1 p-4">
         <BackgroundGradient>
-          <h2 className="text-xl text-center uppercase font-bold ">
+          <h2 className="text-xl text-center uppercase font-bold md:text-4xl">
             nos créations
           </h2>
         </BackgroundGradient>
@@ -44,7 +44,7 @@ function Creations() {
         })}
       </div>
       <BackgroundGradient>
-        <Button className="w-48" variant={"link"} size={"default"}>
+        <Button className="w-48 md:text-xl" variant={"link"} size={"default"}>
           voir plus
         </Button>
       </BackgroundGradient>

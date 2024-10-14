@@ -21,7 +21,9 @@ const VideoBackground: React.FC<VideoBackgroundProps> = ({
         <source src={videoUrl} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-      <div className="relative z-10">{children}</div>
+      <div className="relative z-10 flex flex-col items-center justify-center">
+        {children}
+      </div>
     </div>
   );
 };
