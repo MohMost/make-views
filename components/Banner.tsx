@@ -19,14 +19,14 @@ function Banner() {
   }
 
   return (
-    <section className="h-screen w-full flex flex-col justify-center items-center gap-4 ">
+    <section className="h-[70dvh] w-full flex flex-col justify-center items-center gap-4 ">
       {" "}
       <VideoBackground videoUrl={validationResult.data.videoUrl}>
-        <div className="flex flex-col justify-center items-center gap-4 z-10">
+        <div className="flex flex-col justify-center items-center gap-4 z-[1]">
           {" "}
           <SocialMedia />
           <div className="">
-            <h2 className="flex  flex-col text-3xl  text-center uppercase font-bold ">
+            <h2 className="flex  flex-col text-3xl text-center uppercase font-bold ">
               <span className="text-primary  mb-2 text-lg md:text-3xl xl:text-4xl font-normal">
                 MAKE VIEWS
               </span>
