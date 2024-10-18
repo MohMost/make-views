@@ -5,6 +5,7 @@ import { videoSchema } from "../schemas/videoSchema";
 import { BackgroundGradient } from "./ui/background-gradiant";
 import SocialMedia from "./ui/social-media";
 import { ContactModal } from "./ContactModal";
+import Link from "next/link";
 
 function Banner() {
   const videoUrl =
@@ -46,10 +47,12 @@ function Banner() {
               <Button className="w-48 z-10">Travallons-ensemble</Button>
             </ContactModal>
           </BackgroundGradient>
-
-          <Button className="w-48 " variant={"outline"} size={"default"}>
-            nos services
-          </Button>
+          <Link href="/#services">
+            {" "}
+            <Button className="w-48 " variant={"outline"} size={"default"}>
+              nos services
+            </Button>
+          </Link>
         </div>
       </VideoBackground>
     </section>

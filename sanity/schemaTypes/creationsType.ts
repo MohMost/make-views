@@ -11,8 +11,20 @@ export const creationsType = defineType({
       type: "string",
     }),
     defineField({
+      name: "selectedVideos",
+      title: "Selection de videos (pour la page d'accueil)",
+      type: "array",
+      of: [{ type: "url" }],
+    }),
+    defineField({
       name: "videos",
-      title: "Videos",
+      title: "Videos (16/9)",
+      type: "array",
+      of: [{ type: "url" }],
+    }),
+    defineField({
+      name: "shorts",
+      title: "Shorts (9/16)",
       type: "array",
       of: [{ type: "url" }],
     }),

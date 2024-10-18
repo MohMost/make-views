@@ -1,17 +1,50 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import HeroVideoDialog from "./ui/hero-video-dialog";
 import { Button } from "./ui/button";
 import { BackgroundGradient } from "./ui/background-gradiant";
+import { z } from "zod";
+import { client } from "@/sanity/lib/client";
+import Link from "next/link";
+const videoSectionSchema = z.object({
+  h2Title: z.string().optional(),
+  selectedVideos: z.array(z.string().url()),
+});
 
 function Creations() {
-  const videos = [
-    "https://www.youtube.com/embed/j_ChkKUgjQo",
-    "https://www.youtube.com/embed/QdV4wg4irNs",
-    "https://www.youtube.com/embed/z1xH6PCPxNw",
-    "https://www.youtube.com/embed/xbLHiLs-_Kw",
-    "https://www.youtube.com/embed/mFjDNuZuWj0",
-    "https://www.youtube.com/embed/WxJuKEVyYU0",
-  ];
+  const [selectedVideos, setSelectedVideos] = useState<string[]>([]);
+  const [title, setTitle] = useState<string>("Nos Créations");
+  const [error, setError] = useState<string | null>(null);
+  useEffect(() => {
+    const fetchData = async () => {
+      const query = `*[_type == "videoSection"]{
+        h2Title,
+        selectedVideos,
+      }`;
+
+      try {
+        // Récupérer les données de Sanity
+        const data = await client.fetch(query);
+
+        // Valider les données avec Zod
+        const parsedData = videoSectionSchema.safeParse(data[0]); // Valide le premier élément de la réponse
+
+        if (parsedData.success) {
+          setTitle(parsedData.data.h2Title || "Nos Créations");
+          setSelectedVideos(parsedData.data.selectedVideos);
+        } else {
+          // En cas d'erreur de validation
+          setError("Erreur de validation des données");
+          console.error(parsedData.error);
+        }
+      } catch (err) {
+        setError("Erreur lors de la récupération des données");
+        console.error(err);
+      }
+    };
+
+    fetchData();
+  }, []);
   return (
     <section
       id="creations"
@@ -27,7 +60,7 @@ function Creations() {
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-3 gap-5 p-4">
-        {videos.map((url, index) => {
+        {selectedVideos.map((url, index) => {
           // Extract the video ID from the URL
           const id = url.split("/embed/")[1];
           return (
@@ -44,9 +77,11 @@ function Creations() {
         })}
       </div>
       <BackgroundGradient>
-        <Button className="w-48 md:text-xl" variant={"link"} size={"default"}>
-          voir plus
-        </Button>
+        <Link href="/creations">
+          <Button className="w-48 md:text-xl" variant={"link"} size={"default"}>
+            voir plus
+          </Button>
+        </Link>
       </BackgroundGradient>
     </section>
   );

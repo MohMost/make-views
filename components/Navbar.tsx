@@ -4,14 +4,14 @@ import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
-
+import { usePathname } from "next/navigation";
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const pathname = usePathname();
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-
+  const isCreationsPage = pathname === "/creations";
   return (
     <nav className="bg-[#0F0F0F]/70 justify-between  w-full h-fit backdrop-filter backdrop-blur-md text-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -30,19 +30,19 @@ export default function Navbar() {
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4 text-white">
                 <Link
-                  href="#creations"
+                  href="/creations"
                   className="hover:bg-primary px-3 py-2 rounded-2xl text-base font-medium"
                 >
                   Nos créations
                 </Link>
                 <Link
-                  href="#whyus"
+                  href={isCreationsPage ? "/#whyus" : "#whyus"}
                   className="hover:bg-primary px-3 py-2 rounded-2xl text-base font-medium"
                 >
                   Pourquoi nous choisir
                 </Link>
                 <Link
-                  href="#services"
+                  href={isCreationsPage ? "/#services" : "#services"}
                   className="hover:bg-primary px-3 py-2 rounded-2xl text-base font-medium"
                 >
                   Nos Services
@@ -72,19 +72,19 @@ export default function Navbar() {
         <div className="md:hidden w-full bg-[#0F0F0F]/70 h-screen">
           <div className="px-2 text-white pt-2 pb-3 space-y-1 sm:px-3">
             <Link
-              href="#creations"
+              href={isCreationsPage ? "/#creations" : "#creations"}
               className="hover:bg-primary px-3 py-2 rounded-2xl block text-base font-medium"
             >
               Nos créations
             </Link>
             <Link
-              href="#whyus"
+              href={isCreationsPage ? "/#whyus" : "#whyus"}
               className="hover:bg-primary px-3 py-2 rounded-2xl block text-base font-medium"
             >
               Pourquoi nous choisir
             </Link>
             <Link
-              href="#services"
+              href={isCreationsPage ? "/#services" : "#services"}
               className="hover:bg-primary px-3 py-2 rounded-2xl block text-base font-medium"
             >
               Nos Services
